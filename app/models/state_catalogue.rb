@@ -1,0 +1,2 @@
+class StateCatalogue < ApplicationRecord
+end

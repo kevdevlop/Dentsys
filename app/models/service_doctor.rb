@@ -1,0 +1,3 @@
+class ServiceDoctor < ApplicationRecord
+  
+end
