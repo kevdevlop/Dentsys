@@ -32,6 +32,6 @@ class User < ApplicationRecord
   
   def prepare_creation
     #send a notification email
-    UserMailer.send_welcome_email(self).deliver_now
+    UserMailer.send_welcome_email(self).deliver_now if Rails.env != 'production'
   end
 end
