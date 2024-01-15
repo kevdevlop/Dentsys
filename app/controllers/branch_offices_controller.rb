@@ -13,23 +13,9 @@ class BranchOfficesController < ApplicationController
   end
 
   def create
-    branch_office = @client.branch_offices.new(branch_office_params)
+    result = BranchOfficesService::Create.new(@client, branch_office_params).call
 
-    if branch_office.save
-      data = branch_office
-      status = :created
-    else
-      data = branch_office.errors.as_json
-      status = :unprocessable_entity
-    end
-
-    render json: data, status: status
-  end
-
-  def update
-  end
-
-  def destroy
+    render json: result[:data], status: result[:status]
   end
 
   private
